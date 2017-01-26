@@ -16,7 +16,7 @@ Plugin 'kien/ctrlp.vim'
 " Neomake build tool (mapped below to <c-b>)
 Plugin 'benekastah/neomake'
 " Remove extraneous whitespace when edit mode is exited
-Plugin 'thirtythreeforty/lessspace.vim'
+"Plugin 'thirtythreeforty/lessspace.vim'
 " Tree view
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -37,11 +37,16 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'StanAngeloff/php.vim'
 " Scss support
 Plugin 'cakebaker/scss-syntax.vim'
+" CSS3 support
+Plugin 'hail2u/vim-css3-syntax'
 
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+" Custom snippets
+Plugin 'AdriandeCita/vim-custom-snippets'
+" Commenter
 Plugin 'scrooloose/nerdcommenter'
 " Autoformatter
 Plugin 'Chiel92/vim-autoformat'
@@ -53,7 +58,7 @@ Plugin 'airblade/vim-gitgutter'
 " Tab completion
 Plugin 'ervandew/supertab'
 " Minimap
-Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'severin-lemaignan/vim-minimap'
 
 " After all plugins...
 call vundle#end()
@@ -63,12 +68,15 @@ filetype plugin indent on
 " Don't mess up undo history
 let g:jedi#show_call_signatures = "0"
 
-
 """"""" SuperTab configuration """""""
-"let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 function! Completefunc(findstart, base)
     return "\<c-x>\<c-p>"
 endfunction
+"let g:SuperTabDefaultCompletionType    = '<C-Tab>'
+"let g:SuperTabCrMapping                = 0
+"let g:UltiSnipsExpandTrigger           = '<tab>'
+"let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 "call SuperTabChain(Completefunc, '<c-n>')
 
@@ -143,7 +151,7 @@ set completeopt-=preview
 set background=dark
 
 "Hide buffers in background
-set hidden
+"set hidden
 
 "neosnippets conceal marker
 set conceallevel=2 concealcursor=i
@@ -157,18 +165,18 @@ set shiftwidth=4
 " insert spaces when hitting TABs
 set expandtab
 
-" insert/delete 2 spaces when hitting a TAB/BACKSPACE
+" insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set softtabstop=4
-
-"Set trails for tabs and spaces
-set listchars=tab:!▸,trail:·,nbsp:-
-set list
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
 
 "turn on syntax highlighting
 syntax on
 colorscheme hybrid_material
+
+"Set trails for tabs and spaces
+set listchars=tab:!▸,trail:·,nbsp:-
+set list
+highlight NonText ctermfg=10 guifg=#3916b7
+highlight SpecialKey ctermfg=10 guifg=#3916b7
 
 "transparent bg
 hi Normal ctermbg=none
@@ -197,6 +205,9 @@ set rtp+=~/.config/nvim/bundle/Vundle.vim
 
 " Neomake and other build commands (ctrl-b)
 nnoremap <C-b> :w<cr>:Neomake<cr>
+
+" Find something selected in visual mode
+"vnoremap // y/<C-R>"<CR>
 
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
