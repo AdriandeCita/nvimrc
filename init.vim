@@ -59,6 +59,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 " Minimap
 "Plugin 'severin-lemaignan/vim-minimap'
+" Markdown preview
+"Plugin 'suan/vim-instant-markdown'
+Plugin 'euclio/vim-markdown-composer'
 
 " After all plugins...
 call vundle#end()
