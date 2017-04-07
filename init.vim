@@ -188,6 +188,9 @@ hi Normal ctermbg=none
 set colorcolumn=80
 highlight ColorColumn ctermbg=238 guibg=#d16d0a
 
+" NerdTree - show hidden files
+let NERDTreeShowHidden=1
+
 """"""" Keybindings """""""
 " Set up leaders
 let mapleader="/"
