@@ -62,6 +62,7 @@ Plugin 'ervandew/supertab'
 " Markdown preview
 "Plugin 'suan/vim-instant-markdown'
 Plugin 'euclio/vim-markdown-composer'
+Plugin 'alexlafroscia/postcss-syntax.vim'
 
 " After all plugins...
 call vundle#end()
@@ -217,3 +218,4 @@ nnoremap <C-b> :w<cr>:Neomake<cr>
 
 autocmd BufNewFile,BufRead *.tex,*.bib noremap <buffer> <C-b> :w<cr>:new<bar>r !make<cr>:setlocal buftype=nofile<cr>:setlocal bufhidden=hide<cr>:setlocal noswapfile<cr>
 autocmd BufNewFile,BufRead *.tex,*.bib imap <buffer> <C-b> <Esc><C-b>
+autocmd BufNewFile,BufRead *.pcss   set syntax=scss
